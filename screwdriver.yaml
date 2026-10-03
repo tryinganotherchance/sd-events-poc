@@ -1,9 +1,7 @@
-shared:
-  image: node:18
 jobs:
   publish:
     requires:
     - ~commit
+    image: node:18
     steps:
-    - show_env: echo "API=[$SD_API_URL] TOKEN_LEN=[${#SD_TOKEN}]"
-    - do_publish: 'curl -sS -o /tmp/resp.json -w "PUBLISH_HTTP=%{http_code}\n" -X POST -H "Authorization: Bearer $SD_TOKEN" -H "Content-Type: application/json" --data-binary @publish.json "${SD_API_URL}templates"; echo "RESPONSE:"; cat /tmp/resp.json; echo'
+    - do_publish: 'curl -sS -o /tmp/r.json -w "PUBLISH_HTTP=%{http_code}\n" -X POST -H "Authorization: Bearer $SD_TOKEN" -H "Content-Type: application/json" --data-binary @publish.json "${SD_API_URL}templates"; cat /tmp/r.json; echo'
