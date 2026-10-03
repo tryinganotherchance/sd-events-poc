@@ -1,0 +1,1 @@
+{"yaml": "namespace: attackerns\nname: widget\nversion: '1.0'\ndescription: published by the attacker pipeline through POST /v4/templates\nmaintainer: attacker@example.com\nconfig:\n  image: node:18\n  steps:\n    - whoami: echo \"I-AM-ATTACKERNS-WIDGET\"\n"}
